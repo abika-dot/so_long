@@ -6,20 +6,18 @@
 /*   By: ozahir <ozahir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 23:05:05 by ozahir            #+#    #+#             */
-/*   Updated: 2022/03/08 23:30:04 by ozahir           ###   ########.fr       */
+/*   Updated: 2022/03/10 19:26:56 by ozahir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_h
 
-typedef struct s_map
+typedef	struct	s_list
 {
-    char    *text;
-    int lenght;
-    int index;
-    struct s_map next;
-        
-} t_data;
+	char	*text;
+	struct	s_list	*next;
+}t_list;
 
 #endif
+;
