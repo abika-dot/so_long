@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ozahir <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ozahir <ozahir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 09:55:33 by ozahir            #+#    #+#             */
-/*   Updated: 2021/12/08 02:35:00 by ozahir           ###   ########.fr       */
+/*   Updated: 2022/03/12 22:23:46 by ozahir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_BONUS_H
-# define GET_NEXT_LINE_BONUS_H
-
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+#include <stdio.h>
 # include	<stdlib.h>
 # include	<unistd.h>
 # include	<fcntl.h>
+#define BUFFER_SIZE 42
+
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 int		ft_strlen(char const *s);

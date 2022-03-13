@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ozahir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 09:55:13 by ozahir            #+#    #+#             */
-/*   Updated: 2021/12/08 02:38:15 by ozahir           ###   ########.fr       */
+/*   Updated: 2021/12/07 22:25:17 by ozahir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "get_next_line.h"
 
 int	nl_sig(char *str)
 {
@@ -77,19 +77,19 @@ char	*rest(char *str)
 
 char	*get_next_line(int fd)
 {
-	static char	*garb[1024];
+	static char	*garb;
 	char		*str;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	garb[fd] = bufferfill(fd, garb[fd]);
-	if (!garb[fd])
+	garb = bufferfill(fd, garb);
+	if (!garb)
 		return (NULL);
-	str = newline(garb[fd]);
-	garb[fd] = rest(garb[fd]);
+	str = newline(garb);
+	garb = rest(garb);
 	if (str[0] == '\0')
 	{
-		free(garb[fd]);
+		free(garb);
 		free(str);
 		return (NULL);
 	}
