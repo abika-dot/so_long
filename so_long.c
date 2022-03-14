@@ -59,24 +59,7 @@ void    print_coll(t_mlx mlx, char **map, t_img coll)
         i++;
     }    
 }
-void    print_ground(t_mlx mlx, char **map, t_img ground)
-{
-    int i;
-    int j;
 
-    i = 0;
-    j = 0;
-    while(map[i])
-    {
-        j = 0;
-        while (map[i][j])
-        {
-                mlx_put_image_to_window(mlx.mlx_ptr, mlx.mlx_win,ground.img, j *60, i*60);
-            j++;
-        }
-        i++;
-    }    
-}
 void    print_player(t_mlx mlx, char **map, t_img player)
 {
     int i;
@@ -96,25 +79,7 @@ void    print_player(t_mlx mlx, char **map, t_img player)
         i++;
     }    
 }
-void    print_enemy(t_mlx mlx, char **map, t_img enemy)
-{
-    int i;
-    int j;
 
-    i = 0;
-    j = 0;
-    while(map[i])
-    {
-        j = 0;
-        while (map[i][j])
-        {
-            if (map[i][j] == 'E')
-                mlx_put_image_to_window(mlx.mlx_ptr, mlx.mlx_win,enemy.img, j * 60, i * 60);
-            j++;
-        }
-        i++;
-    }    
-}
 void    print_wall(t_mlx mlx, char **map, t_img wall)
 {
     int i;
@@ -153,30 +118,84 @@ void    print_exit(t_mlx mlx, char **map, t_img run)
         i++;
     }    
 }
+
+int *rand_enemy_move(int *p, char   **map)
+{
+    int r;
+
+    r = rand() % 10;
+    printf("%d " , r %10);
+    while (1)
+    {
+        if (r < 3 && map[p[0] + 1] [p[1]] == '0') //down
+            {
+                p[0] += 1;
+                break ;
+            }
+        if (r >= 3 && r < 6 && map[p[0]][p[1] + 1] == '0')  //right 
+            {
+                p[1] += 1;
+                break; 
+            }
+        if (r >= 6 && r < 8 && map[p[0]][p[1] - 1] == '0')  //left 
+            {
+                p[1] -= 1;
+                break; 
+            }
+        if (r >= 8 && r < 10 && map[p[0] - 1][p[1]] == '0')  //up 
+            {
+                p[0] -= 1;
+                break; 
+            }
+            r = rand() % 10;
+    }
+    return p;
+}
+void    print_enemy(t_mlx mlx, char **map, t_img enemy)
+{
+    int i;
+    int j;
+
+    i = 0;
+    j = 0;
+    while(map[i])
+    {
+        j = 0;
+        while (map[i][j])
+        {
+            if (map[i][j] == 'D')
+                {
+                    mlx_put_image_to_window(mlx.mlx_ptr, mlx.mlx_win, enemy.img, j * 60, i * 60);
+
+                }
+            j++;
+        }
+        i++;
+    }    
+}
+
 void    print_map(t_mlx mlx,t_map *plane)
 {
-            t_img   player;
-            t_img   enemy;
-            t_img   ground;
-            t_img   coll;
-            t_img   wall;
+           t_img   player;
+           t_img   coll;
+           t_img   wall;
             t_img run;
-            int i;
-            int j;
+            t_img enemy;
+
 
             wall = get_image(mlx, "asset/wall.xpm");
             player = get_image(mlx, "asset/player/p1.xpm");
-            enemy = get_image(mlx, "asset/enemy/e1.xpm");
-            ground = get_image(mlx, "asset/ground.xpm");
-            coll = get_image(mlx, "asset/collec.xpm");
-            run  = get_image(mlx, "asset/exit.xpm");
-            print_ground(mlx, plane->map, ground);
+           enemy = get_image(mlx, "asset/enemy/e2.xpm");
+           coll = get_image(mlx, "asset/collec.xpm");
+           run  = get_image(mlx, "asset/exit.xpm");
+            printf("%p\n", enemy.img);
             print_wall(mlx, plane->map, wall);
-          print_coll(mlx, plane->map, coll);
-            print_exit(mlx, plane->map, run);
-          print_player(mlx, plane->map, player);
-          print_enemy(mlx, plane->map, enemy);
+         print_coll(mlx, plane->map, coll);
+           print_exit(mlx, plane->map, run);
+        print_enemy(mlx,plane->map, enemy);
+        print_player(mlx, plane->map, player);
 }
+
 int main(int ac, char  **av)
 {
     t_map    *plane;
@@ -187,7 +206,6 @@ int main(int ac, char  **av)
         plane = get_plane(av[1]);
         if (!plane)
             return (0);
-        printf("height %d, width %d \n", plane->height, plane->width);
         tot.mlx_ptr = mlx_init();
         tot.mlx_win = mlx_new_window(tot.mlx_ptr, plane->width * 60 , plane->height * 60, "so_long"); 
         print_map(tot, plane);

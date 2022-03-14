@@ -99,7 +99,7 @@ int check_border(char	**map)
 }
 int chara(char	c)
 {
-	if (c == '1' || c== '0' || c == 'E' || c== 'P' || c== 'C')
+	if (c == '1' || c== '0' || c == 'E' || c== 'P' || c== 'C' || c == 'D')
 		return 1;
 	return 0;
 }
@@ -117,7 +117,7 @@ int characters(int	*index)
 		}
 		i++;
 	}
-	if (index['P'] != 1 || index['C'] < 1 || index['E'] < 1 )
+	if (index['P'] != 1 || index['C'] < 1 || index['E'] < 1  || index['D'] < 1)
 		return (0);
 	return (1);
 }
