@@ -14,7 +14,7 @@
 
 int	main(int ac, char **av)
 {
-	t_mlx	tot;
+	t_mlx   tot;
 
 	if (ac == 2)
 	{

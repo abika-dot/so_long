@@ -14,7 +14,7 @@
 
 int	check_name(char	*map)
 {
-	int	i;
+	int     i;
 
 	i = ft_strlen(map) - 4;
 	if (ft_strncmp(map + i, ".ber", 4) != 0)
