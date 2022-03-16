@@ -16,11 +16,13 @@
 #include <mlx.h>
 #define BUFFER_SIZE 42
 
-typedef struct s_mlx
+typedef struct s_map
 {
-    void    *mlx_ptr;
-    void    *mlx_win;
-} t_mlx;
+    char    **map;
+    int     width;
+    int     height;
+} t_map;
+
 
 typedef struct s_img
 {
@@ -28,13 +30,23 @@ typedef struct s_img
     int     width;
     int     height;
 } t_img;
-
-typedef struct s_map
+typedef struct s_assets
 {
-    char    **map;
-    int     width;
-    int     height;
-} t_map;
+    t_img wall;
+    t_img   player;
+    t_img   enemy;
+    t_img coll;
+    t_img run;
+    t_img run_o;
+    int state;
+} t_assets;
+typedef struct s_mlx
+{
+    void    *mlx_ptr;
+    void    *mlx_win;
+    t_map *map;
+    t_assets asset;
+} t_mlx;
 
 int check_name(char	*map);
 char	**read_map(int fd);
