@@ -17,8 +17,9 @@ B_DIR = bonus
 M_NAME = so_long
 B_NAME = so_long_bonus
 
-B_MAIN = $(B_DIR)/main.c
 M_MAIN = $(M_DIR)/main.c
+B_MAIN = $(B_DIR)/main.c
+
 
 CFLAGS = -Wall -Wextra -Werror
 MLX_FLAGS =  -lmlx -framework OpenGL -framework AppKit
@@ -100,15 +101,9 @@ $(B_OBJ_DIR)/%.o: $(B_PRINT_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -rf $(M_OBJ_DIR) 
+	@rm -rf $(M_OBJ_DIR) $(B_OBJ_DIR)
 
 fclean: clean
-	@rm $(M_NAME) 
+	@rm $(M_NAME) $(B_NAME)
 
 re: fclean all
-
-cleanb: 
-	@rm -rf $(B_OBJ_DIR)
-f_cleanb: cleanb
-	@rm $(B_NAME)
-reb: f_cleanb bonus

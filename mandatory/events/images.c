@@ -18,6 +18,8 @@ t_img	get_image(t_mlx mlx, char *file)
 
 	instance.img = mlx_xpm_file_to_image(mlx.mlx_ptr, file,
 			&instance.width, &instance.height);
+    printf("poin %p\n", instance.img);
+    printf("file %s\n", file);
 	return (instance);
 }
 
@@ -54,11 +56,11 @@ t_assets	get_xpms(t_mlx mlx)
 {
 	t_assets	imgs;
 
-	imgs.run = get_image(mlx, "asset/exit.xpm");
-	imgs.run_o = get_image(mlx, "asset/exit2.xpm");
-	imgs.wall = get_image(mlx, "asset/wall.xpm");
-	imgs.player = get_image(mlx, "asset/player/p1.xpm");
-	imgs.coll = get_image(mlx, "asset/collec.xpm");
+	imgs.run = get_image(mlx, "mandatory/asset/exit.xpm");
+	imgs.run_o = get_image(mlx, "mandatory/asset/exit2.xpm");
+	imgs.wall = get_image(mlx, "mandatory/asset/wall.xpm");
+	imgs.player = get_image(mlx, "mandatory/asset/player/p1.xpm");
+	imgs.coll = get_image(mlx, "mandatory/asset/collec.xpm");
 	return (imgs);
 }
 
