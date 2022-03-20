@@ -18,8 +18,6 @@ t_img	get_image(t_mlx mlx, char *file)
 
 	instance.img = mlx_xpm_file_to_image(mlx.mlx_ptr, file,
 			&instance.width, &instance.height);
-    printf("poin %p\n", instance.img);
-    printf("file %s\n", file);
 	return (instance);
 }
 
