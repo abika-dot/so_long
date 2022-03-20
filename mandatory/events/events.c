@@ -108,19 +108,18 @@ int	listner(int keycode, t_mlx *mlx)
 	write(1, "\n", 1);
 	mlx_clear_window(mlx->mlx_ptr, mlx->mlx_win);
 	if (keycode == 1)
-		move_up(mlx);
+		i += move_up(mlx);
 	else if (keycode == 13)
-		move_down(mlx);
+		i += move_down(mlx);
 	else if (keycode == 0)
-		move_left(mlx);
+		i += move_left(mlx);
 	else if (keycode == 2)
-		move_right(mlx);
+		i += move_right(mlx);
 	else if (keycode == 53)
 		check_game(mlx->map->map, mlx, 1);
 	check_game(mlx->map->map, mlx, 0);
 	print_map(mlx, mlx->map);
 	free(n);
-	i++;
 	return (0);
 }
 

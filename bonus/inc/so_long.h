@@ -6,7 +6,7 @@
 /*   By: ozahir <ozahir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 22:04:10 by ozahir            #+#    #+#             */
-/*   Updated: 2022/03/20 20:45:30 by ozahir           ###   ########.fr       */
+/*   Updated: 2022/03/21 00:01:37 by ozahir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,10 @@ char		**ft_split(char *s, char c);
 char		*ft_itoa(int n);
 void		now_m(char **map, int i, int j);
 int			switch_place(char **map, int i, int j);
-void		move_up(t_mlx *mlx);
-void		move_down(t_mlx *mlx);
-void		move_left(t_mlx *mlx);
-void		move_right(t_mlx *mlx);
+int			move_up(t_mlx *mlx);
+int			move_down(t_mlx *mlx);
+int			move_left(t_mlx *mlx);
+int			move_right(t_mlx *mlx);
 void		change_prefix(char **map);
 int			check_name(char	*map);
 char		**read_map(int fd);

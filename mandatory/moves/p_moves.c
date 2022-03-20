@@ -6,13 +6,13 @@
 /*   By: ozahir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 19:52:51 by ozahir            #+#    #+#             */
-/*   Updated: 2022/03/16 21:00:28 by ozahir           ###   ########.fr       */
+/*   Updated: 2022/03/20 23:57:54 by ozahir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-void	move_up(t_mlx *mlx)
+int	move_up(t_mlx *mlx)
 {
 	int		i;
 	int		j;
@@ -31,15 +31,16 @@ void	move_up(t_mlx *mlx)
 			{
 				m[i][j] = '0';
 				m[i + 1][j] = 'P';
-				return ;
+				return (1);
 			}
 			j++;
 		}
 		i++;
 	}
+	return (0);
 }
 
-void	move_down(t_mlx *mlx)
+int	move_down(t_mlx *mlx)
 {
 	int		i;
 	int		j;
@@ -58,15 +59,16 @@ void	move_down(t_mlx *mlx)
 			{
 				m[i][j] = '0';
 				m[i - 1][j] = 'P';
-				return ;
+				return (1);
 			}
 			j++;
 		}
 		i++;
 	}
+	return (0);
 }
 
-void	move_left(t_mlx *mlx)
+int	move_left(t_mlx *mlx)
 {
 	int		i;
 	int		j;
@@ -85,15 +87,16 @@ void	move_left(t_mlx *mlx)
 			{
 				m[i][j] = '0';
 				m[i][j - 1] = 'P';
-				return ;
+				return (1);
 			}
 			j++;
 		}
 		i++;
 	}
+	return (0);
 }
 
-void	move_right(t_mlx *mlx)
+int	move_right(t_mlx *mlx)
 {
 	int		i;
 	int		j;
@@ -112,12 +115,13 @@ void	move_right(t_mlx *mlx)
 			{
 				m[i][j] = '0';
 				m[i][j + 1] = 'P';
-				return ;
+				return (1);
 			}
 			j++;
 		}
 		i++;
 	}
+	return (0);
 }
 
 void	change_prefix(char **map)

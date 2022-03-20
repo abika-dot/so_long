@@ -104,6 +104,6 @@ clean:
 	@rm -rf $(M_OBJ_DIR) $(B_OBJ_DIR)
 
 fclean: clean
-	@rm $(M_NAME) $(B_NAME)
+	@rm -rf $(M_NAME) $(B_NAME)
 
 re: fclean all

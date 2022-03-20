@@ -6,7 +6,7 @@
 /*   By: ozahir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 20:03:37 by ozahir            #+#    #+#             */
-/*   Updated: 2022/03/20 20:44:53 by ozahir           ###   ########.fr       */
+/*   Updated: 2022/03/21 00:02:07 by ozahir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,16 +87,15 @@ int	listner(int keycode, t_mlx *mlx)
 		free(mlx->n);
 	mlx->n = ft_itoa(i);
 	if (keycode == 1)
-		move_up(mlx);
+		i += move_up(mlx);
 	else if (keycode == 13)
-		move_down(mlx);
+		i += move_down(mlx);
 	else if (keycode == 0)
-		move_left(mlx);
+		i += move_left(mlx);
 	else if (keycode == 2)
-		move_right(mlx);
+		i += move_right(mlx);
 	else if (keycode == 53)
 		check_game(mlx->map->map, mlx, 1);
-	i++;
 	return (0);
 }
 

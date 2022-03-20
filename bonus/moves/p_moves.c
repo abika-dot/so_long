@@ -6,13 +6,13 @@
 /*   By: ozahir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 19:52:51 by ozahir            #+#    #+#             */
-/*   Updated: 2022/03/20 20:18:41 by ozahir           ###   ########.fr       */
+/*   Updated: 2022/03/21 00:04:38 by ozahir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-void	move_up(t_mlx *mlx)
+int	move_up(t_mlx *mlx)
 {
 	int		i;
 	int		j;
@@ -32,15 +32,16 @@ void	move_up(t_mlx *mlx)
 				m[i][j] = '0';
 				m[i + 1][j] = 'P';
 				mlx->asset.player.pos = 0;
-				return ;
+				return (1);
 			}
 			j++;
 		}
 		i++;
 	}
+	return (0);
 }
 
-void	move_down(t_mlx *mlx)
+int	move_down(t_mlx *mlx)
 {
 	int		i;
 	int		j;
@@ -60,15 +61,16 @@ void	move_down(t_mlx *mlx)
 				m[i][j] = '0';
 				m[i - 1][j] = 'P';
 				mlx->asset.player.pos = 1;
-				return ;
+				return (1);
 			}
 			j++;
 		}
 		i++;
 	}
+	return (0);
 }
 
-void	move_left(t_mlx *mlx)
+int	move_left(t_mlx *mlx)
 {
 	int		i;
 	int		j;
@@ -88,15 +90,16 @@ void	move_left(t_mlx *mlx)
 				m[i][j] = '0';
 				m[i][j - 1] = 'P';
 				mlx->asset.player.pos = 3;
-				return ;
+				return (1);
 			}
 			j++;
 		}
 		i++;
 	}
+	return (0);
 }
 
-void	move_right(t_mlx *mlx)
+int	move_right(t_mlx *mlx)
 {
 	int		i;
 	int		j;
@@ -116,12 +119,13 @@ void	move_right(t_mlx *mlx)
 				m[i][j] = '0';
 				m[i][j + 1] = 'P';
 				mlx->asset.player.pos = 2;
-				return ;
+				return (1);
 			}
 			j++;
 		}
 		i++;
 	}
+	return (0);
 }
 
 void	change_prefix(char **map)
